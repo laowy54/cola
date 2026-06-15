@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+  
+  --color-coke-red: #F40009;
+  --color-coke-dark: #1A1A1A;
+  --color-coke-gray: #2d2d2d;
+  --color-coke-light: #F9F9F7;
+  --color-coke-silver: #E5E7EB;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-fluid-hero {
+    font-size: clamp(3rem, 5vw + 1rem, 6rem);
+  }
+  .hero-gradient {
+    background: radial-gradient(circle at 50% 50%, rgba(244,0,9,0.05) 0%, transparent 70%);
+  }
+  .glass-blur {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.7);
+  }
+  .btn-hover:hover {
+    background-color: var(--color-coke-dark);
+    transform: translateY(-1px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-coke-light); /* mapped to cc-cream */
+  color: var(--color-coke-dark); /* mapped to cc-dark */
+}
+
+.dark body {
+  background-color: var(--color-coke-dark);
+  color: var(--color-coke-light);
+}
+
+/* Custom easing for hover state */
+.ease-premium {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.carbon-bubble {
+  animation: rise 3s infinite ease-in;
+  opacity: 0;
+}
